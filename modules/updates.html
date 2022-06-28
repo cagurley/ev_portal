@@ -1,0 +1,10 @@
+{% if updates.size > 0 %}
+<div id="p-updates" class="p-section">
+  {% for update in updates %}
+  <div class="p-row p-update callout">
+    <div class="callout-stripe"></div>
+    <div class="p-col callout-main">{{update.val | snippet: update.event}}</div>
+  </div>
+  {% endfor %}
+</div>
+{% endif %}

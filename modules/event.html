@@ -17,7 +17,21 @@
         <div>{{event[0].country}}</div>
       </div>
       <h3>Weather</h3>
-      <div>{{event[0].weather}}</div>
+      {% if event[0].weather_available == 1 %}
+      <div class="p-row">
+        <div class="p-col">
+          <div>{{event[0].weather_short}}</div>
+          <div>{{event[0].weather_long}}</div>
+        </div>
+        <div class="p-col">
+          <div><img src="{{event[0].weather_icon}}" alt="Weather forecast icon"></div>
+          <div>{{event[0].weather_temperature}} &deg;F</div>
+          <div>{{event[0].weather_precipitation}}&percnt; chance of precipitation</div>
+        </div>
+      </div>
+      {% else %}
+      <div>We don't have a forecast for you yet; please check back nearer to the event's start.</div>
+      {% endif %}
     </div>
   </div>
 </div>
