@@ -249,6 +249,20 @@
   padding: 20px;
 }
 
+.p-page .p-update.callout {
+  margin: 10px 0;
+}
+
+.p-page .p-update .callout-stripe {
+  background-color: #9A1220;
+  width: 20px;
+}
+
+.p-page .p-update .callout-main {
+  background-color: #9A122026;
+  padding: 20px;
+}
+
 .p-page .status-icon {
   position: absolute;
   width: 16px;
@@ -322,6 +336,10 @@
   font-weight: 300 !important;
 }
 
+.p-page .p-plh {
+  line-height: 1.5;
+}
+
 .p-page .d-none {
   display: none;
 }
@@ -333,7 +351,7 @@
 .p-page #p-banner::before {
   content: "";
   position: absolute;
-  background: url("/images/clocktower_skyline.jpg") center/cover;
+  background: url("/images/hum_quad.jpg") center/cover;
   opacity: 0.15;
   top: 0;
   right: 0;

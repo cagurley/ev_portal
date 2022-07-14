@@ -1,37 +1,59 @@
-<div id="ep-event" class="p-section">
+<div id="p-event" class="p-section">
+  <div class="p-row">
+    <div class="p-col">
+      <h2>Parking &amp; Directions</h2>
+      <div class="p-plh">{{event[0].parking_val | snippet: event[0].parking_key}}</div>
+    </div>
+  </div>
   <div class="p-row">
     <div class="p-col">
       <h2>Event</h2>
       <h3>{{event[0].summary}}</h3>
       <p>{{event[0].description | strip_html}}</p>
+      {% if related.size > 0 %}
+      <h3>{{related[0].summary}}</h3>
+      <p>{{related[0].description | strip_html}}</p>
+      {% endif %}
     </div>
-    <div class="p-col">
+    <div class="p-col p-plh">
       <h2>Details</h2>
       <h3>When</h3>
       <div>{{event[0].date}}&ndash;{{event[0].dtend}} {{event[0].timezone_id}}</div>
       <h3>Where</h3>
       <div>
-        <div>{{event[0].location}}</div>
-        <div>{{event[0].street}}</div>
-        <div>{{event[0].city}}, {{event[0].region}} {{event[0].postal}}</div>
-        <div>{{event[0].country}}</div>
+        <div>University of Louisville</div>
+        <div>Student Activities Center</div>
+        <div>Kurz Visit Room W212</div>
       </div>
       <h3>Weather</h3>
       {% if event[0].weather_available == 1 %}
       <div class="p-row">
-        <div class="p-col">
-          <div>{{event[0].weather_short}}</div>
-          <div>{{event[0].weather_long}}</div>
+        <div class="p-col lg-4 xl-3">
+          <div><img src="{{event[0].weather_icon}}" alt="Weather forecast icon"></div>
         </div>
         <div class="p-col">
-          <div><img src="{{event[0].weather_icon}}" alt="Weather forecast icon"></div>
+          <div><strong>{{event[0].weather_short}}</strong></div>
           <div>{{event[0].weather_temperature}} &deg;F</div>
           <div>{{event[0].weather_precipitation}}&percnt; chance of precipitation</div>
         </div>
       </div>
+      <p>{{event[0].weather_long}}</p>
       {% else %}
       <div>We don't have a forecast for you yet; please check back nearer to the event's start.</div>
       {% endif %}
     </div>
+    {% if event[0].nonlocal == 1 %}
+    <div class="p-row">
+      <div class="p-col">
+        <h2>The City of Louisville</h2>
+        <p>Louisville is the perfect mix of Midwest family values and Southern charm, dashed with big city culture. Our park-like campus is nestled in a vibrant neighborhood, 3 miles South of downtown Louisville.</p>
+        <ul>
+          <li>Need a place to stay near campus? <a href="https://louisville.edu/finance/controller/acctops/travel/localhotelprint" target="_blank">View local hotels with special UofL rates.</a></li>
+          <li>Visit some of our favorite attractions near campus, including the Kentucky Derby Museum, the Muhammad Ali Center, and the Speed Art Museum!</li>
+          <li>Louisville is known for being a foodie city...and UofL is close to some of the best eateries in town!</li>
+        </ul>
+      </div>
+    </div>
+    {% endif %}
   </div>
 </div>

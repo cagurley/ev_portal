@@ -3,7 +3,7 @@
   {% for update in updates %}
   <div class="p-row p-update callout">
     <div class="callout-stripe"></div>
-    <div class="p-col callout-main">{{update.val | snippet: update.event}}</div>
+    <div class="p-col callout-main">{{update.val | snippet: update.key}}</div>
   </div>
   {% endfor %}
 </div>
