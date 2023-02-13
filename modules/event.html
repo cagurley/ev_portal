@@ -4,11 +4,11 @@
     <div class="p-row">
       <div class="p-col bs-12 lg-4">
         <div class="p-icontainer">
-          <img class="center-sm" src="/images/{{event[0].parking_img_val | snippet: event[0].parking_key | strip_html}}" alt="Parking location">
+          <img class="center-sm" src="/images/{{event[0].parking_image_val | snippet: event[0].event_key | strip_html}}" alt="Parking location">
         </div>
       </div>
       <div class="p-col">
-        <div class="p-plh">{{event[0].parking_desc_val | snippet: event[0].parking_key}}</div>
+        <div class="p-plh">{{event[0].parking_desc_val | snippet: event[0].event_key}}</div>
       </div>
     </div>
   </div>
@@ -32,12 +32,7 @@
       <h3>When</h3>
       <div>{{event[0].date}}&ndash;{{event[0].dtend}} {{event[0].timezone_id}}</div>
       <h3>Where</h3>
-      <div>
-        {% assign location_tokens = event[0].location | split: ', ' %}
-        {% for token in location_tokens %}
-        <div>{{token}}</div>
-        {% endfor %}
-      </div>
+      <div>{{event[0].location_val | snippet: event[0].event_key}}</div>
       <h3>Weather</h3>
       {% if event[0].weather_available == 1 %}
       <div class="p-row">
